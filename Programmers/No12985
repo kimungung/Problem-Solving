@@ -1,0 +1,39 @@
+/*
+Programmers 12985 예상 대진표
+
+*/
+
+class Solution
+{
+    public int solution(int n, int a, int b)
+    {
+        int answer = 0;
+
+        for(int i=1; i<=20; i++){
+            
+            if(n == Math.pow(2,i)){
+                answer = i; 
+                break;
+            }
+                
+        }
+        
+        for(int i=1; i<=answer; i++){
+            int num = n/(int)Math.pow(2,i);
+            
+            if((a<=num && b>num) || (a>num && b<=num) ){
+                return answer-(i-1);
+            }else{
+                
+                if(a>num && b>num){
+                    a -= num;
+                    b -= num;
+                }
+                
+            }
+ 
+        }
+  
+        return -1;
+    }
+}
